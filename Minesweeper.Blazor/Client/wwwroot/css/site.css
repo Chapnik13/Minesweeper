@@ -1,5 +1,27 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.board-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.board-square {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 30px;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Blazor.Server", "Minesweeper.Blazor\Server\Minesweeper.Blazor.Server.csproj", "{3CF374E0-C337-49E2-9788-AF76D8536F6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.Blazor.Server", "Minesweeper.Blazor\Server\Minesweeper.Blazor.Server.csproj", "{3CF374E0-C337-49E2-9788-AF76D8536F6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Blazor.Client", "Minesweeper.Blazor\Client\Minesweeper.Blazor.Client.csproj", "{B97632CA-857E-4C3B-B01F-AF7C42232CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.Blazor.Client", "Minesweeper.Blazor\Client\Minesweeper.Blazor.Client.csproj", "{B97632CA-857E-4C3B-B01F-AF7C42232CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper.Blazor.Shared", "Minesweeper.Blazor\Shared\Minesweeper.Blazor.Shared.csproj", "{DC3E3004-99DC-4CED-9433-519905D13B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper.Blazor.Shared", "Minesweeper.Blazor\Shared\Minesweeper.Blazor.Shared.csproj", "{DC3E3004-99DC-4CED-9433-519905D13B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
