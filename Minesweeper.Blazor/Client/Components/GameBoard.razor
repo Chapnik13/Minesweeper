@@ -6,7 +6,7 @@
         <div class="board-row">
             @for (var j = 0; j < Size; j++)
             {
-                <BoardSquare Value="0" Id="i*Size + j" OnClick="OnGameSquareClick"></BoardSquare>
+                <BoardSquare Square="Game.Board[i,j]" />
             }
         </div>
         }

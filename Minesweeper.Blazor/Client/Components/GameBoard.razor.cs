@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using Minesweeper.Blazor.Shared;
 
 namespace Minesweeper.Blazor.Client.Components
 {
@@ -8,16 +8,12 @@ namespace Minesweeper.Blazor.Client.Components
         [Parameter]
         public int Size { get; set; }
 
-        protected int[,] Board;
+        [Inject]
+        public MinesweeperGame Game { get; set; }
 
         protected override void OnParametersSet()
         {
-            Board = new int[Size, Size];
-        }
-
-        protected void OnGameSquareClick(int id)
-        {
-            Console.WriteLine($"Squre[{id / Size},{id % Size}]");
+            Game.InitializeBoard(Size, 8);
         }
     }
 }

@@ -1,24 +1,21 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Minesweeper.Blazor.Shared.Models;
 
 namespace Minesweeper.Blazor.Client.Components
 {
     public class BoardSquareBase : ComponentBase
     {
         [Parameter]
-        public int Value { get; set; }
+        public Square Square { get; set; }
 
-        [Parameter]
-        public int Id { get; set; }
-
-        [Parameter]
-        public EventCallback<int> OnClick { get; set; }
-
-        public bool IsOpen { get; set; } = false;
-
-        public void OpenSquare()
+        protected override void OnParametersSet()
         {
-            IsOpen = true;
-            OnClick.InvokeAsync(Id);
+            Square.Opened += Square_Opened;
+        }
+
+        private void Square_Opened(object sender, SquareLocation e)
+        {
+            StateHasChanged();
         }
     }
 }

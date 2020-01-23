@@ -1,8 +1,8 @@
 ﻿@inherits BoardSquareBase
 
-<div class="board-square" @onclick="OpenSquare">
-    @if (IsOpen)
+<div class="board-square" @onclick="Square.OpenSquare">
+    @if (Square.IsOpen)
     {
-        @Value
+        @Convert.ToInt32(Square.Value)
     }
 </div>
