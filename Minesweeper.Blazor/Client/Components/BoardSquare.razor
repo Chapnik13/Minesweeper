@@ -1,8 +1,13 @@
 ﻿@inherits BoardSquareBase
 
-<div class="board-square" @onclick="Square.OpenSquare">
-    @if (Square.IsOpen)
-    {
-        @Convert.ToInt32(Square.Value)
-    }
-</div>
+    <div class="board-square" @onmousedown="OpenSquare" oncontextmenu="return false">
+        @if (Square.IsOpen)
+        {
+            <text>@Convert.ToInt32(Square.Value)</text>
+        }
+
+        @if (Square.IsFlag)
+        {
+            <text>F</text>
+        }
+    </div>

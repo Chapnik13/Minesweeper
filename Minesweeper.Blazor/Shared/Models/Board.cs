@@ -1,26 +1,40 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Minesweeper.Blazor.Shared.Models
 {
-    public class Board
+    public class Board : IEnumerable<Square>
     {
-        public int Size => SquaresBoard.GetLength(0);
+        public int Size => Squares.GetLength(0);
 
-        public Square[,] SquaresBoard { get; private set; }
+        private Square[,] Squares { get; set; }
 
-        public Square this[int i, int j] => SquaresBoard[i, j];
+        public Square this[int i, int j] => Squares[i, j];
 
         public Board(ESquareValue[,] arrayBoard)
         {
-            SquaresBoard = new Square[arrayBoard.GetLength(0), arrayBoard.GetLength(1)];
+            Squares = new Square[arrayBoard.GetLength(0), arrayBoard.GetLength(1)];
 
             for (var i = 0; i < arrayBoard.GetLength(0); i++)
             {
                 for (var j = 0; j < arrayBoard.GetLength(1); j++)
                 {
-                    SquaresBoard[i, j] = new Square(i, j, arrayBoard[i, j]);
+                    Squares[i, j] = new Square(i, j, arrayBoard[i, j]);
                 }
             }
+        }
+
+        public IEnumerator<Square> GetEnumerator()
+        {
+            foreach (var square in Squares)
+            {
+                yield return square;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

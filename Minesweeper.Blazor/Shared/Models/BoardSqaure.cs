@@ -6,6 +6,7 @@ namespace Minesweeper.Blazor.Shared.Models
     {
         public ESquareValue Value { get; private set; }
         public bool IsOpen { get; private set; } = false;
+        public bool IsFlag { get; private set; } = false;
 
         public event EventHandler<SquareLocation> Opened;
 
@@ -19,8 +20,19 @@ namespace Minesweeper.Blazor.Shared.Models
 
         public void OpenSquare()
         {
-            IsOpen = true;
-            Opened?.Invoke(this, location);
+            if (!IsOpen && !IsFlag)
+            {
+                IsOpen = true;
+                Opened?.Invoke(this, location);
+            }
+        }
+
+        public void SetFlag()
+        {
+            if (!IsOpen)
+            {
+                IsFlag = true;
+            }
         }
     }
 }

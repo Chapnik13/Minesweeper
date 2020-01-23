@@ -1,5 +1,6 @@
 ﻿using Minesweeper.Blazor.Shared.Models;
 using System;
+using System.Linq;
 
 namespace Minesweeper.Blazor.Shared
 {
@@ -7,11 +8,13 @@ namespace Minesweeper.Blazor.Shared
     {
         public Board Board { get; set; }
 
+        public int BombsLeft => Board.Count(s => s.Value == ESquareValue.Bomb) - Board.Count(s => s.IsFlag);
+
         public void InitializeBoard(int boardSize, int amountOfBombs)
         {
             Board = new Board(CreateBoard(boardSize, amountOfBombs));
 
-            foreach (var square in Board.SquaresBoard)
+            foreach (var square in Board)
             {
                 square.Opened += Square_Opened;
             }
@@ -57,8 +60,7 @@ namespace Minesweeper.Blazor.Shared
                 return;
             }
 
-            Console.WriteLine(board[x, y]);
-            board[x,y] = board[x, y]+1;
+            board[x, y] = board[x, y] + 1;
         }
 
         private void Square_Opened(object sender, SquareLocation e)
@@ -80,7 +82,7 @@ namespace Minesweeper.Blazor.Shared
         {
             if (x >= 0 && y >= 0 && x < Board.Size && y < Board.Size)
             {
-                if (Board[x, y].Value == ESquareValue.Empty && !Board[x, y].IsOpen)
+                if (Board[x, y].Value != ESquareValue.Bomb)
                 {
                     Board[x, y].OpenSquare();
                 }

@@ -7,6 +7,7 @@
     justify-content: center;
     border: 1px solid black;
     width:auto;
+    user-select:none;
 }
 
 .board-row {
